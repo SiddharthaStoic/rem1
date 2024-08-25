@@ -1,0 +1,692 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Module 1</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(249, 228, 188, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="6252d7cd-b31b-47eb-8c36-a361d162714b" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1545208942-e1c9c916524b?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/battery-charging_green.svg"/></div><h1 class="page-title">Module 1</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Program</th><td><span class="selected-value select-value-color-blue">Module 1</span></td></tr></tbody></table></header><div class="page-body"><h1 id="f78dfb1b-d9cc-49d8-963a-df6aec970ebe" class="block-color-yellow_background">Introduction</h1><ul id="11874898-42f8-4c91-9586-fd527de2aa0e" class="bulleted-list"><li style="list-style-type:disc">The energy sector holds the key in accelerating the economic growth.</li></ul><ul id="b640ec40-fe74-403f-ad50-ce3471b35aca" class="bulleted-list"><li style="list-style-type:disc">Future economic growth crucially depends on the long term availability of sources that are affordable, accessible and environment friendly.</li></ul><ul id="ec910435-9b9c-4137-81bc-73f1f30ebbd5" class="bulleted-list"><li style="list-style-type:disc">India is well-endowed with both exhaustible and renewable energy resources. Coal, oil, and natural gas are the three primary commercial energy sources.</li></ul><ul id="a55fa133-b77a-43b1-b92d-fbb508812bee" class="bulleted-list"><li style="list-style-type:disc">India’s energy policy, till the end of the 1980s, was mainly based on availability of indigenous resources. Coal was by far the largest source of energy. However, India’s primary energy mix has been changing over a period of time.</li></ul><h3 id="74e27613-9410-441c-82a9-e9fd107a1a22" class="block-color-pink_background">Coal</h3><ul id="901a2cc2-c528-47a5-a591-9ac8b7599d10" class="bulleted-list"><li style="list-style-type:disc">India is one of the world&#x27;s largest producers and consumers of coal.</li></ul><ul id="86fe4f2d-dff2-4988-8ca7-ddddce96c84e" class="bulleted-list"><li style="list-style-type:disc">Coal is the dominant source of energy for power generation in India, accounting for about 70% of electricity production.</li></ul><ul id="96026e9c-2943-4796-9e10-3ba136e53666" class="bulleted-list"><li style="list-style-type:disc">India has significant coal reserves, particularly in states like Jharkhand, Odisha, Chhattisgarh, and West Bengal.</li></ul><h3 id="d8cd5e83-e608-41aa-93bb-ebde4503ab9a" class="block-color-pink_background">Oil and Natural Gas</h3><ul id="d766ff70-bf48-4c07-b1f6-08365eb5c6da" class="bulleted-list"><li style="list-style-type:disc">India heavily depends on imports to meet its oil and natural gas requirements, with imports constituting a significant portion of its consumption.</li></ul><ul id="0dd58be9-a93a-4f5c-9952-26084e031e4d" class="bulleted-list"><li style="list-style-type:disc">The country has limited proven reserves of oil and natural gas, primarily located offshore in the Arabian Sea and onshore in regions like Gujarat, Assam, and Rajasthan.</li></ul><ul id="c1e055e7-6fd7-4acc-8182-bbbab7a4c0af" class="bulleted-list"><li style="list-style-type:disc">Efforts are ongoing to explore and develop new domestic sources, including through exploration in deepwater and unconventional reserves.</li></ul><h3 id="a36f3a40-a585-4684-a479-ef77a3fae792" class="block-color-pink_background">Renewable Energy</h3><ul id="00dec0a9-ba44-41b3-8508-6d7f9f85fc2e" class="bulleted-list"><li style="list-style-type:disc">India has been rapidly expanding its renewable energy capacity, particularly in solar and wind power.</li></ul><ul id="08091c91-a2e5-4b12-92bc-41254cc26808" class="bulleted-list"><li style="list-style-type:disc">The country has abundant solar energy potential, with several solar parks and projects being developed across various states.</li></ul><ul id="f1c1ddee-4f6c-4bb9-898b-a3238bc88bf9" class="bulleted-list"><li style="list-style-type:disc">Wind power is also a growing sector, with states like Tamil Nadu, Maharashtra, Gujarat, and Karnataka leading in wind energy production.</li></ul><ul id="013db1df-3f65-4963-94bb-c058557dbf8d" class="bulleted-list"><li style="list-style-type:disc">Hydropower contributes significantly to India&#x27;s renewable energy mix, with major projects on rivers like the Ganges, Brahmaputra, and Indus.</li></ul><h3 id="fbec46bb-4ece-4dd9-a6a5-83322c4c132c" class="block-color-pink_background">Nuclear Energy</h3><ul id="2ee7e52c-f985-4f1f-b422-c8e686d5f4e7" class="bulleted-list"><li style="list-style-type:disc">Nuclear energy plays a relatively small but significant role in India&#x27;s energy mix, contributing around 2-3% of electricity generation.</li></ul><ul id="d132e6bc-b3b9-4de5-8ae2-2ddbb66b8b4b" class="bulleted-list"><li style="list-style-type:disc">India has a growing nuclear power capacity, with several reactors in operation and under construction.</li></ul><ul id="57b11022-55b0-495e-b5a6-cda00f677283" class="bulleted-list"><li style="list-style-type:disc">Uranium resources in India are limited, leading to dependence on imports for fuel supply, although efforts are underway to expand domestic uranium mining and exploration.</li></ul><h3 id="0025889a-8807-4bbe-896f-edbbf2049b3e" class="block-color-pink_background">Energy Efficiency and Conservation</h3><ul id="d85c5dc3-a009-4211-b48d-56f23e5569cc" class="bulleted-list"><li style="list-style-type:disc">India has been focusing on improving energy efficiency and promoting energy conservation measures to reduce dependence on imported fuels and mitigate environmental impacts.</li></ul><ul id="5514f62d-cd25-4393-8a28-6d8343b6b3c6" class="bulleted-list"><li style="list-style-type:disc">Initiatives such as the National Mission for Enhanced Energy Efficiency (NMEEE) aim to promote energy-efficient practices across various sectors, including industry, transportation, and buildings.</li></ul><hr id="6660cb74-fa2c-4905-8249-44339ad3cdcf"/><h2 id="340a738f-4bdd-482a-bfdf-f3b13eefe9d6" class="block-color-blue_background">India’s Production and Commercial Energy Sources</h2><ul id="023a7050-f4a1-47b0-9037-c5085a05981d" class="bulleted-list"><li style="list-style-type:disc">India&#x27;s energy landscape is characterized by significant production and reserves across various commercial energy sources.</li></ul><ul id="c1315d91-0652-4ae2-a498-1280ce6ff427" class="bulleted-list"><li style="list-style-type:disc">With abundant coal reserves, India is a major producer and consumer of coal for electricity generation and industrial use.</li></ul><ul id="cef3fb05-196f-436a-917b-3e82541433a2" class="bulleted-list"><li style="list-style-type:disc">However, the country&#x27;s crude oil and natural gas reserves are relatively limited compared to its consumption, leading to substantial imports to meet demand. India&#x27;s renewable energy sector is rapidly expanding, driven by favorable government policies and investments, particularly in solar and wind energy. Nuclear energy contributes a smaller but growing share to India&#x27;s energy mix, with several nuclear power plants operational and under construction.</li></ul><ul id="6bf6e4d0-1551-445b-abf8-6bfd6b49c251" class="bulleted-list"><li style="list-style-type:disc">Hydroelectric power also plays a significant role, harnessing the country&#x27;s vast hydroelectric potential, particularly in states with abundant water resources. Despite these diverse energy sources, India faces challenges in balancing energy security, environmental sustainability, and meeting growing demand.</li></ul><hr id="e5d8e547-b7c8-4663-8332-0edfac64a3cd"/><h2 id="6bf9c69c-3cd7-4f41-ab44-abb766eda68b" class="block-color-blue_background">Need for Non-Conventional Energy Sources</h2><ol type="1" id="c5ab1f89-c953-4bd9-86f0-cad74df2c6a7" class="numbered-list" start="1"><li><strong>Environmental Concerns</strong>: Traditional energy sources like coal, oil, and natural gas contribute significantly to air and water pollution, as well as greenhouse gas emissions. Non-conventional energy sources offer cleaner alternatives, helping to mitigate climate change and reduce environmental degradation.</li></ol><ol type="1" id="a3e45116-ee8a-4672-83b8-4cd3ab3bf79e" class="numbered-list" start="2"><li><strong>Energy Security</strong>: Dependence on imported fossil fuels exposes countries to geopolitical risks and price fluctuations in the global market. Investing in non-conventional energy sources enhances energy security by diversifying the energy mix and reducing reliance on finite resources concentrated in specific regions.</li></ol><ol type="1" id="14307e2b-aa98-4f0d-a243-e10eab0832cf" class="numbered-list" start="3"><li><strong>Economic Benefits</strong>: Renewable energy sources offer opportunities for economic growth and job creation, particularly in manufacturing, installation, and maintenance of renewable energy infrastructure. Investing in non-conventional energy can stimulate local economies and reduce energy import bills over the long term.</li></ol><ol type="1" id="f472655b-ce5b-4c9c-892e-45bf44e0e908" class="numbered-list" start="4"><li><strong>Resource Conservation</strong>: Non-conventional energy sources, such as solar, wind, and hydroelectric power, harness naturally replenishing resources like sunlight, wind, and water. Unlike fossil fuels, these resources are abundant and widely distributed, reducing pressure on finite resources and promoting sustainable development.</li></ol><ol type="1" id="9aa8bd0c-2b16-4ea1-829e-94631aafa23c" class="numbered-list" start="5"><li><strong>Energy Access</strong>: In many regions, particularly rural and remote areas, access to reliable electricity remains limited. Non-conventional energy sources, especially decentralized systems like solar microgrids, offer cost-effective solutions to expand energy access and improve quality of life for underserved populations.</li></ol><ol type="1" id="14ab95ed-52a3-47e8-aacf-e98825a8e693" class="numbered-list" start="6"><li><strong>Technological Advancements</strong>: Rapid advancements in renewable energy technologies, coupled with declining costs, make non-conventional energy sources increasingly competitive with traditional fossil fuels. Continued innovation and investment in research and development further drive down costs and improve efficiency, making renewable energy an attractive option for energy generation.</li></ol><hr id="daac701d-33ac-4abf-a77d-d941314b3a37"/><h2 id="20b50f09-3f50-45a9-946d-f22f1f54cc95" class="block-color-blue_background">Energy Alternatives</h2><p id="717dbb09-ca2c-4ebf-b799-481d3514ae6d" class="">There are several energy alternatives to traditional fossil fuels, which can be broadly categorized into renewable and non-renewable sources. Here are some key energy alternatives:</p><h3 id="603d58cc-24b6-413c-8852-3fe9c9e298df" class="block-color-pink_background">1. Renewable Energy Sources</h3><ol type="1" id="00b4e74b-a611-4e40-98f2-6df799838900" class="numbered-list" start="1"><li><strong>Solar Energy</strong>: Harnessing sunlight through photovoltaic panels or concentrating solar power systems to generate electricity or heat water.</li></ol><ol type="1" id="60596ce5-bd2f-4db4-b4c9-e988be57c9ea" class="numbered-list" start="2"><li><strong>Wind Energy</strong>: Utilizing wind turbines to convert wind energy into electricity.</li></ol><ol type="1" id="267f5c22-8ddf-4ccb-9235-ccd1eaeaf922" class="numbered-list" start="3"><li><strong>Hydroelectric Power</strong>: Generating electricity by harnessing the energy of flowing water through dams or run-of-river installations.</li></ol><ol type="1" id="011beab4-b07c-44e6-90e9-dfdeb3e90ba9" class="numbered-list" start="4"><li><strong>Biomass Energy</strong>: Using organic materials such as wood, crop residues, or waste to produce heat, electricity, or biofuels.</li></ol><ol type="1" id="be21a00d-04ca-4e4b-845e-dcfa12d2186a" class="numbered-list" start="5"><li><strong>Geothermal Energy</strong>: Tapping into heat from the Earth&#x27;s crust to generate electricity or provide heating and cooling.</li></ol><h3 id="c05386bf-9489-40ef-8da5-562a1f11a7f8" class="block-color-pink_background">2. Nuclear Energy</h3><p id="66fdcea5-2f8d-45ef-8489-61d08bc44ce0" class="">Utilizing nuclear reactions to generate heat, which is then used to produce steam to drive turbines for electricity generation. </p><p id="5505d54f-2f8a-4eca-b927-4f50bedc081c" class="">Nuclear energy is considered low-carbon but raises concerns regarding safety, waste management, and proliferation.</p><h3 id="909a8630-10ac-48ef-b985-f7caee99450b" class="block-color-pink_background">3. Hydrogen Energy</h3><p id="ecf5f58c-ab80-4376-8994-cbb29dcf7c2d" class="">Producing hydrogen from water electrolysis, natural gas reforming, or biomass gasification, which can be used as a clean fuel for transportation, heating, and industrial processes.</p><h3 id="0c8f6490-078d-4da2-98a5-b5f8b185aa4f" class="block-color-pink_background">4. Tidal and Wave Energy</h3><p id="423cc9c1-8a11-4a5e-a468-7e685037bf8e" class="">Capturing energy from ocean tides and waves to generate electricity. </p><p id="c57ec82a-aed7-41d2-822c-8ff2a0964f54" class="">Tidal barrages, tidal turbines, and wave energy converters are some technologies used in this field.</p><h3 id="3791c9ce-4566-4f7e-8874-49b1d779f239" class="block-color-pink_background">5. Biofuels</h3><p id="216e07d3-e9a4-4505-b53d-67d0603fa65d" class="">Liquid fuels derived from biomass, such as ethanol from sugarcane, corn, or cellulosic materials, and biodiesel from vegetable oils or animal fats. </p><p id="b6fe5fa9-5a88-48f2-8b63-00a9c5c47e32" class="">Biofuels can be used as alternatives to gasoline and diesel in transportation.</p><h3 id="fff8a7cc-169d-800e-b6d3-c30565516dd8" class="block-color-pink_background">6. Fuel Cells</h3><p id="395c8527-2a65-4e02-afb2-75b35744684f" class="">Electrochemical devices that convert chemical energy directly into electricity, with hydrogen being a common fuel source. </p><p id="e52fcd67-dbc1-4108-919a-939c3ccedbdd" class="">Fuel cells have applications in transportation, stationary power generation, and portable electronics.</p><h3 id="03041d39-2cf5-428a-b91f-17f2221d531b" class="block-color-pink_background">7. Energy Storage</h3><p id="ca579187-8cb9-45b1-ace9-17e7593bd724" class="">Advancements in battery technologies, including lithium-ion batteries, flow batteries, and solid-state batteries, enable efficient storage of electricity from renewable sources for later use, enhancing grid stability and enabling greater integration of renewables.</p><hr id="e94e857e-b8f8-4533-bcd7-673f0e2db221"/><h2 id="84ddbf55-9010-4609-a2ae-90604e17d25e" class="block-color-blue_background">Indian and Global Energy Scenario</h2><h3 id="01b076a7-aea5-4300-a8fb-7a154c31ff80" class="block-color-pink_background">Global Energy Scenario</h3><ul id="26e4e164-f40b-4681-95fa-a8c094baca26" class="bulleted-list"><li style="list-style-type:disc">The world’s population is expected to grow to 8 BILLION in 2020.</li></ul><ul id="576e806e-08c4-4735-8f1c-03510ab8d154" class="bulleted-list"><li style="list-style-type:disc">This will Require<ul id="47516b1a-8ef9-4ee6-ab49-f9f78fe9d904" class="bulleted-list"><li style="list-style-type:circle">90 BILLION bpd OF OIL</li></ul><ul id="5bb590f9-2239-4c3d-a6bb-d78a9f37a8c8" class="bulleted-list"><li style="list-style-type:circle">7 B.TONS OF COAL/YR</li></ul><ul id="f0a97c3e-9c44-4940-afab-7e75c243d4a3" class="bulleted-list"><li style="list-style-type:circle">40 TRILLION Cu.M/YR OF NG</li></ul></li></ul><ul id="d302c468-af4a-4c0e-b940-4e6d533ab9b1" class="bulleted-list"><li style="list-style-type:disc">50% of this energy will be required in the developing world.</li></ul><ul id="382c90e6-24c4-4fa7-ad75-c7da0ae37f2d" class="bulleted-list"><li style="list-style-type:disc">There is uneven pattern of energy consumption in different countries.</li></ul><ul id="2a80f971-95cb-41f4-a8df-92317dddb2cc" class="bulleted-list"><li style="list-style-type:disc">Developed countries have a population of 10%, and use approx. 90% of the available resources, while on the other hand, there are countries where people depend on wood as a form of energy.</li></ul><ul id="56f4ef0b-d12e-41b4-8154-bd471501cadf" class="bulleted-list"><li style="list-style-type:disc">From the last 20 years, developing countries focus on energy sector. Rate of growth in energy sector in developed countries is 1% to 2%, but in developing countries, the growth rate is 7% to 8%.</li></ul><h3 id="c78cc5b3-26d8-4948-b16a-3c7739a67da4" class="block-color-pink_background">India’s Energy Scenario</h3><ul id="4de1c68f-0179-4c7d-badd-0d8838b14cee" class="bulleted-list"><li style="list-style-type:disc">India accounts for 16% of the world’s population, with 0.6% of oil &amp; 6% of coal resources.</li></ul><ul id="ea33079f-7815-4392-acfe-021bf81e6eaa" class="bulleted-list"><li style="list-style-type:disc">Per capita energy consumption is 684 kWh/yr in India, 3295 kWh/yr in China, and 13246 kWh/yr in the USA. </li></ul><ul id="fff8a7cc-169d-8020-8247-eb93b19a7b17" class="bulleted-list"><li style="list-style-type:disc">By 2025, India will be the most populous country in the world. Coupled with the GDP growth requirements, the additional energy requirement will be mind boggling.</li></ul><ul id="e5fac89c-f3ee-45b1-97dc-cbd408c21bba" class="bulleted-list"><li style="list-style-type:disc">The answer will have to be found on both sides of the equation.</li></ul><figure id="f71b02ce-1920-4065-8b92-40c968e212d6" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mtext>Energy Supply </mtext><mtext>(SOURCE, TECHNOLOGY, EFFICIENCY)</mtext></msub><mo>=</mo><msub><mtext>Energy Demand </mtext><mtext>(ALTERNATIVES, EQUIPMENT, LIFESTYLE)</mtext></msub></mrow><annotation encoding="application/x-tex">\text{Energy Supply }_{\text{(SOURCE, TECHNOLOGY, EFFICIENCY)}} = \text{Energy Demand }_{\text{(ALTERNATIVES, EQUIPMENT, LIFESTYLE)}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1136em;vertical-align:-0.4191em;"></span><span class="mord"><span class="mord text"><span class="mord">Energy Supply </span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2809em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">(SOURCE, TECHNOLOGY, EFFICIENCY)</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4191em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.1136em;vertical-align:-0.4191em;"></span><span class="mord"><span class="mord text"><span class="mord">Energy Demand </span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.2809em;"><span style="top:-2.4559em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord mtight">(ALTERNATIVES, EQUIPMENT, LIFESTYLE)</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4191em;"><span></span></span></span></span></span></span></span></span></span></span></div></figure><h3 id="fff8a7cc-169d-8070-a9bb-f385b7239cd7" class="">Available Sources of Energy</h3><figure id="d98467c8-7935-4aff-8bae-380373a10230" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.16em" columnalign="left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>Fossil Fuel</mtext><mspace width="1em"/><mo>→</mo><mspace width="1em"/><mtext>Coal</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mphantom><mtext>Fossil Fuel</mtext></mphantom><mspace width="1em"/><mo>→</mo><mspace width="1em"/><mtext>Oil</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mphantom><mtext>Fossil Fuel</mtext></mphantom><mspace width="1em"/><mo>→</mo><mspace width="1em"/><mtext>Natural Gas</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>Renewables</mtext><mspace width="1em"/><mo>→</mo><mspace width="1em"/><mtext>Solar/Thermal</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mphantom><mtext>Renewables</mtext></mphantom><mspace width="1em"/><mo>→</mo><mspace width="1em"/><mtext>Hydro</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mphantom><mtext>Renewables</mtext></mphantom><mspace width="1em"/><mo>→</mo><mspace width="1em"/><mtext>Wind</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mphantom><mtext>Renewables</mtext></mphantom><mspace width="1em"/><mo>→</mo><mspace width="1em"/><mtext>Bio-Mass</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>Other</mtext><mspace width="1em"/><mo>→</mo><mspace width="1em"/><mtext>Nuclear</mtext></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{array}{l}\text{Fossil Fuel} \quad \rightarrow \quad \text{Coal} \\\phantom{\text{Fossil Fuel}} \quad \rightarrow \quad \text{Oil} \\\phantom{\text{Fossil Fuel}} \quad \rightarrow \quad \text{Natural Gas} \\[10pt]\text{Renewables} \quad \rightarrow \quad \text{Solar/Thermal} \\\phantom{\text{Renewables}} \quad \rightarrow \quad \text{Hydro} \\\phantom{\text{Renewables}} \quad \rightarrow \quad \text{Wind} \\\phantom{\text{Renewables}} \quad \rightarrow \quad \text{Bio-Mass} \\[10pt]\text{Other} \quad \rightarrow \quad \text{Nuclear}\end{array}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:11.6em;vertical-align:-5.55em;"></span><span class="mord"><span class="mtable"><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:6.05em;"><span style="top:-8.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Fossil Fuel</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">Coal</span></span></span></span><span style="top:-7.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text" style="color:transparent;"><span class="mord" style="color:transparent;">Fossil Fuel</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">Oil</span></span></span></span><span style="top:-5.81em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text" style="color:transparent;"><span class="mord" style="color:transparent;">Fossil Fuel</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">Natural Gas</span></span></span></span><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Renewables</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">Solar/Thermal</span></span></span></span><span style="top:-2.41em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text" style="color:transparent;"><span class="mord" style="color:transparent;">Renewables</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">Hydro</span></span></span></span><span style="top:-1.21em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text" style="color:transparent;"><span class="mord" style="color:transparent;">Renewables</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">Wind</span></span></span></span><span style="top:-0.01em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text" style="color:transparent;"><span class="mord" style="color:transparent;">Renewables</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">Bio-Mass</span></span></span></span><span style="top:2.19em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord">Other</span></span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord">Nuclear</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:5.55em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span></span></span></span></span></span></span></div></figure><h3 id="fff8a7cc-169d-803e-bacc-cd281014c5da" class="">1. Coal</h3><ul id="9fe707f5-0b58-4895-8a25-a00770e56929" class="bulleted-list"><li style="list-style-type:disc">India ranks second amongst the coal producing countries in the world.</li></ul><ul id="c25b7bf8-303b-4087-bf83-f1a056557340" class="bulleted-list"><li style="list-style-type:disc">Coal Being the most abundant fossil fuel in India till date, it continues to be one of the most important sources for meeting the domestic energy needs.</li></ul><ul id="18f84141-5b50-491d-8d8f-ace40180570e" class="bulleted-list"><li style="list-style-type:disc">It accounts for 55% of the country’s total energy supplies. Most of the coal production in India comes from open pit mines contributing to over 81% of the total production.</li></ul><ul id="129c3026-f147-40fc-9fa2-975a5e8dd370" class="bulleted-list"><li style="list-style-type:disc">Underground mining accounts for rest of the national output.</li></ul><h3 id="8d0b407c-522b-49f6-8fc9-5d8576eec2db" class="">2. Oil and Natural Gas</h3><ul id="a8994ab1-bbaf-4d4e-ad64-744623d0082c" class="bulleted-list"><li style="list-style-type:disc">India produced a total of <strong>2.3 million metric tonnes (MMT)</strong> of crude oil in February 2024 - registering a growth of 7.9 per cent compared to the year-ago period, according to Petroleum Planning &amp; Analysis Cell (PPAC).</li></ul><ul id="64dd1945-ead2-4ec0-a35f-fd5d5e33c4be" class="bulleted-list"><li style="list-style-type:disc">The production of natural gas increased from 1.4 BCM (billion cubic metres) to 47.56 BCM during the same period.</li></ul><ul id="c3c20e7c-d3eb-4f32-b558-2cbafa5920b5" class="bulleted-list"><li style="list-style-type:disc">The consumption of natural gas was 46.48 BCM during 2011- 12. It increased from 0.66 BCM in 1970-71 with a CAGR of 10.71%.</li></ul><ul id="177df898-39e8-4e0e-aedb-f2824a77c4ac" class="bulleted-list"><li style="list-style-type:disc">India’s consumption of natural gas has risen faster than any other fuel in the recent years. Industries such as power generation, fertilizer, and petrochemical production are shifting towards natural gas.</li></ul><ul id="bbc8bb86-364a-459e-9bc9-5b6e0d94614b" class="bulleted-list"><li style="list-style-type:disc">India’s natural gas consumption has been met entirely through domestic production in the past. However, in the last 4/5 years, there has been a huge unmet demand of natural gas in the country, mainly required for the core sectors of the economy.</li></ul><h3 id="a28e9e72-d99c-4698-ac8f-226bfaf16e8b" class="">3. Renewable Energy Sources</h3><ul id="85fe8fc9-a1ce-47b4-b02c-2ab6244bbe9c" class="bulleted-list"><li style="list-style-type:disc">India has one of the highest potentials for the effective use of renewable energy.</li></ul><ul id="dbe20bd0-949b-4858-b0bb-0a37d21461c2" class="bulleted-list"><li style="list-style-type:disc">There is a significant potential in India for generation of power from renewable energy sources.</li></ul><ul id="9c1493ab-f5bd-4213-9be4-5ee861841f9a" class="bulleted-list"><li style="list-style-type:disc">The total potential for renewable power generation as on 31.03.12 is estimated at 89774 MW.</li></ul><ul id="5fcca22d-77fc-418e-b07b-32d9e1911607" class="bulleted-list"><li style="list-style-type:disc">Wind power potential of 49130 MW (54.73%), SHP (small-hydro power) 15399 MW (17.15%), Biomass power 17,538 MW(19.54%) and 5000 MW (5.57%) from bagasse-based cogeneration.</li></ul><hr id="f2089153-1cf4-45c8-a6d9-9bcf6e636106"/><p id="79c09cc1-0ea2-4510-8ae8-8dfb34833a35" class="">
+</p><h1 id="e890dc2e-8f18-4f2b-b030-1f71e8a46c0c" class="block-color-yellow_background">Solar Radiation and Measurement</h1><h2 id="3d247c6b-9a20-45f7-93b3-da15c503a9b2" class="block-color-blue_background">Extra-Terrestrial Radiation and its Spectral Distribution</h2><p id="58cda0c4-cf79-408e-a0bd-028279d3f59e" class="">Everything in nature emits electromagnetic energy, and solar radiation is energy emitted by the sun. The energy of extraterrestrial solar radiation is distributed over a wide continuous spectrum ranging from ultraviolet to infrared rays.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ead7f1f7-1707-4b86-a758-1d93d55556b6"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Extraterrestrial radiation refers to the solar radiation that reaches the Earth&#x27;s atmosphere from the Sun. This radiation is composed of various wavelengths across the electromagnetic spectrum, ranging from ultraviolet (UV) to infrared (IR), as well as some radio waves. The spectral distribution of extraterrestrial radiation follows a pattern known as the solar spectrum.</div></figure><p id="1b9097c2-dc75-4da9-b4ce-d7be6319f1b0" class="">The solar spectrum can be divided in to different regions based on wavelength:</p><ol type="i" id="b3955a6e-e72d-45a0-95dc-a09d026ca144" class="numbered-list" start="1"><li><strong>Ultraviolet (UV) Radiation</strong>: This includes wavelengths shorter than visible light, typically ranging from about 10 nanometers to 400 nanometers. UV radiation is further divided into UV-A (400-315 nm), UV-B (315-280 nm), and UV-C (280-100 nm), with UV-C mostly absorbed by the Earth&#x27;s atmosphere.</li></ol><ol type="i" id="22971cc0-87a5-40fa-8d95-9623850982ad" class="numbered-list" start="2"><li><strong>Visible Light</strong>: This is the portion of the spectrum that is visible to the human eye and ranges from approximately 400 nanometers (violet) to 700 nanometers (red).</li></ol><ol type="i" id="75516fae-ad1f-4582-977a-813da0396a5e" class="numbered-list" start="3"><li><strong>Infrared (IR) Radiation</strong>: Beyond the visible spectrum, IR radiation ranges from about 700 nanometers to 1 millimeter. It&#x27;s further divided into near-infrared (NIR), mid-infrared (MIR), and far-infrared (FIR) regions.</li></ol><hr id="8f188a68-4c07-4e35-89b9-4b370c9828f9"/><h2 id="3f38a0cf-6f17-42b7-ac6f-65bf20991d96" class="block-color-blue_background">Solar Constant</h2><ul id="e0b2f022-e855-4d25-89d4-ee340441b61d" class="bulleted-list"><li style="list-style-type:disc">Although the Sun is large, it subtends an angle of only 32 minutes at the Earth’s surface. This is because it is also at a very large distance.</li></ul><ul id="ac6b54e0-ad5f-4326-8457-eed05ddedffa" class="bulleted-list"><li style="list-style-type:disc">Thus, the beam radiation received from the Sun on the Earth is almost parallel.</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ba1f4696-6fe4-4d65-b010-ba55635828b9"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">The brightness of the sun varies from its centre to its edge. However for engineering calculations, it is customary to assume that the brightness all over the solar disc is uniform.</div></figure><ul id="17d26397-4799-4e2b-ac2e-e551c997aaa7" class="bulleted-list"><li style="list-style-type:disc">The fraction of the energy flux emitted by the sun and intercepted by the earth is characterized by the solar constant.</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f6701ddf-e76d-4280-b5f0-4be866591e0b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">The solar constant <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>I</mi><mrow><mi>s</mi><mi>c</mi></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(I_{sc})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">sc</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span> is defined as a flux density measuring mean solar electromagnetic radiation (solar irradiance) per unit area.</div></figure><ul id="51174283-3a32-4069-9d5d-bb8351b8d800" class="bulleted-list"><li style="list-style-type:disc">It is most precisely measured by satellites outside the earth atmosphere.</li></ul><ul id="aeab8b4c-664f-4c67-8d1f-0dc3a5e85edf" class="bulleted-list"><li style="list-style-type:disc">The NASA’s standard value for the solar constant is <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1367</mn><mtext> </mtext><mi>W</mi><mi mathvariant="normal">/</mi><msup><mi>m</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">1367 \ W/m^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1367</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> [cited from Stine and Harrigan, 1986].</li></ul><p id="8a5e673f-07d4-4287-9c1f-0b6d6054e5a0" class="">
+</p><ul id="3c64f694-ea00-4f78-b2c2-7dd6491e36da" class="bulleted-list"><li style="list-style-type:disc">The distance between the Earth and the Sun varies a little through the year. Because of this variation, the extraterrestrial flux also varies. </li></ul><ul id="776645dc-5de8-418d-84b6-052e44ca7683" class="bulleted-list"><li style="list-style-type:disc">The Earth is closest to the Sun in the summer and farthest away in the winter. This variation in distance produces a nearly sinusoidal variation in the intensity of solar radiation <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span></span><span>﻿</span></span> that reaches the Earth. It can be approximated as<figure id="582ecf2d-13d1-4bad-9123-ccc1a21701a9" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mi>I</mi><msub><mi>I</mi><mrow><mi>s</mi><mi>c</mi></mrow></msub></mfrac><mo>=</mo><mn>1</mn><mo>+</mo><mn>0.033</mn><mi>cos</mi><mo>⁡</mo><mrow><mo fence="true">(</mo><mfrac><mrow><mn>360</mn><mo>×</mo><mi>n</mi></mrow><mn>365</mn></mfrac><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">\dfrac{I}{I_{sc}} = 1 + 0.033 \cos \left( \dfrac{360 \times n}{365} \right )</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.1963em;vertical-align:-0.836em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">sc</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.836em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.4em;vertical-align:-0.95em;"></span><span class="mord">0.033</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mop">cos</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">(</span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">365</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">360</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">)</span></span></span></span></span></span></span></div></figure><p id="f3e6564c-4122-4dde-b07e-1232d3dd53f2" class="">where <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span></span></span></span></span><span>﻿</span></span> is the day of the year.</p></li></ul><hr id="773927d8-bce0-4fe7-bc2f-fc76c8705d95"/><h2 id="21d4fa29-6614-4fef-9519-26de406f95f6" class="block-color-blue_background">Solar Radiation at the Earth’s Surface</h2><ul id="fff8a7cc-169d-80f1-a94e-db277295b5f7" class="bulleted-list"><li style="list-style-type:disc">The solar radiation that penetrates the earth’s atmosphere and reaches the surface differs in both amount and character from the radiation at the top of the atmosphere. </li></ul><ul id="82fc5d59-f879-49f6-9370-bc390a362e83" class="bulleted-list"><li style="list-style-type:disc">In the first place, part of the radiation is reflected back into space, especially by clouds. Furthermore, the radiation entering the atmosphere is partly absorbed by molecules in the air. </li></ul><ul id="cf5d45b7-1e32-410c-bd28-f244c480cab5" class="bulleted-list"><li style="list-style-type:disc">Oxygen and ozone (O₃) formed from oxygen, absorb nearly all the ultraviolet radiation, and water vapour and carbon dioxide absorb some of the energy in the infrared range. </li></ul><ul id="bc600ce2-54a6-4a3e-be24-e83dabef9406" class="bulleted-list"><li style="list-style-type:disc">In addition, part of the solar radiation is scattered (i.e., its direction has been changed) by droplets in clouds by atmospheric molecules, and by dust particles.</li></ul><h3 id="fff8a7cc-169d-80eb-8888-ef681893603d" class="block-color-pink_background">Beam and Diffuse Solar Radiation</h3><ul id="cbf53b4a-12fe-4bf0-bb72-1acb27ac2d9a" class="bulleted-list"><li style="list-style-type:disc">Solar radiation that has not been absorbed or scattered and reaches the ground directly from the sun is called “direct radiation” or <strong>Beam </strong>radiation.  It is the radiation which produces a shadow when interrupted by an opaque object.</li></ul><ul id="37a8c4f2-867f-49a4-952b-6c3b2f8a5254" class="bulleted-list"><li style="list-style-type:disc"><strong>Diffuse radiation</strong> is that solar radiation received from the sun after its direction has been changed by reflection and scattering by the atmosphere.  Because of the solar radiation is scattered in all directions in the atmosphere, diffuse radiation comes to the earth from all parts of the sky.</li></ul><ul id="4bcf3c96-4770-470a-95a7-34b969e73f34" class="bulleted-list"><li style="list-style-type:disc">The total solar radiation received at any point on the earth’s surface is the sum of the direct and diffuse radiation. This is referred to in a general sense as the <strong>insolation</strong> at that point.<figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="cd164c30-e4ee-4731-821b-e2fd89291e0f"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">More specifically, the insolation is defined as the total solar radiation energy received on a horizontal surface of unit area (e.g., 1 sq. m) on the ground in unit time (e.g., 1 day).</div></figure><p id="52f79f3d-f80e-44b9-bd55-681009b371a0" class="">
+</p></li></ul><figure id="da67432f-13da-4482-9f01-73a39cee8cb5" class="image"><a href="Module%201%206252d7cdb31b47eb8c36a361d162714b/image.png"><img style="width:528px" src="Module%201%206252d7cdb31b47eb8c36a361d162714b/image.png"/></a><figcaption>Figure 1: Direct, diffuse and total radiation</figcaption></figure><hr id="5d178d49-a1f1-4610-a820-62982510d92e"/><h2 id="c5ab1349-cfcc-4dc2-a33e-a36ff6bbc491" class="block-color-blue_background">Solar Radiation Data</h2><p id="c293e027-133c-4b2b-b67b-d8652eab8960" class="">Solar radiation data are available in several forms and should include the following information:</p><ol type="1" id="411f3841-862d-4e38-9615-d6d4be55bcfa" class="numbered-list" start="1"><li>Whether they are instantaneous measurements or values integrated over some period of time (usually hour or day).</li></ol><ol type="1" id="68890546-bd78-4492-bfb9-f66642c494f6" class="numbered-list" start="2"><li>The time or time period of the measurements.</li></ol><ol type="1" id="56e0b160-ab52-4f49-82ff-a50f9c264b28" class="numbered-list" start="3"><li>Whether the measurements are of beam, diffuse or total radiation, and the instrument used.</li></ol><ol type="1" id="82380db9-78e2-469f-a6c3-6c11899464b6" class="numbered-list" start="4"><li>The receiving surface orientation (usually horizontal, it may be inclined at a fixed slope or normal).</li></ol><ol type="1" id="2e97d6b9-9fa4-4c4f-9e93-2e5325860c2b" class="numbered-list" start="5"><li>If averaged, the period over which they are averaged (e.g., monthly average of daily radiation).</li></ol><p id="fff8a7cc-169d-8015-aa1d-ebc350c893ff" class="">
+</p><ul id="fff8a7cc-169d-8079-9859-ce28994bcfa7" class="bulleted-list"><li style="list-style-type:disc">Most of the data on solar radiation received on the surface of the earth are measured by <strong>solarimeters</strong>, which give readings for instantaneous measurements at rate throughout the day for total radiation on a horizontal surface. </li></ul><ul id="cb25eba7-75e2-45e6-8200-865fa30d6af2" class="bulleted-list"><li style="list-style-type:disc">Integrating the plot of rate of energy received per unit area per unit time over a whole day gives the langleys of radiation received on a horizontal surface.</li></ul><ul id="7a32bb37-e6ae-4528-9eab-69637eb796c4" class="bulleted-list"><li style="list-style-type:disc">It should be pointed out that solar radiation flux is generally reported in <strong>langleys per hour</strong> or per day <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>1</mn><mtext> langley</mtext><mo>=</mo><mn>1</mn><mtext> </mtext><mi>c</mi><mi>a</mi><mi>l</mi><mi mathvariant="normal">/</mi><mi>c</mi><msup><mi>m</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(1 \text{ langley} = 1 \ cal/cm^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">1</span><span class="mord text"><span class="mord"> langley</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mspace"> </span><span class="mord mathnormal">c</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord">/</span><span class="mord mathnormal">c</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>.</li></ul><ul id="85c83ec0-1de0-4b6e-8eb6-01c72cf65800" class="bulleted-list"><li style="list-style-type:disc">The unit ‘langley’ has been adopted in honour of Samuel Langley who made the first measurement of the spectral distribution of the sun.</li></ul><p id="52f1dcfa-5b1b-49b6-a9ba-62e938321934" class="">
+</p><ul id="d585de6b-96e1-432e-99db-7605ec956fc4" class="bulleted-list"><li style="list-style-type:disc">A typical daily record of the global and diffuse radiation measured on a clear day is shown in Figure 2. In contrast to the smooth variation shown in Figure 2, a jagged variation with many peaks is obtained on a cloudy or a partly cloudy day. This is shown in Figure 3. </li></ul><ul id="b148b178-d07f-44f2-95aa-9d5423bce41e" class="bulleted-list"><li style="list-style-type:disc">A solar designer is primarily interested in average values of radiation for a location. The averaging is usually made over a month and tabulations showing the hourly variation of global and diffuse radiation, the amount received per day, and the sunshine hours per day are prepared.</li></ul><div id="b1ffd3ee-487b-48d8-8250-5b2f3f086e47" class="column-list"><div id="fff8a7cc-169d-8069-b0a3-fb0ec3c417b6" style="width:50%" class="column"><figure id="60aba8a7-89a8-4d0f-a73e-d4349d0fd7f7" class="image"><a href="Module%201%206252d7cdb31b47eb8c36a361d162714b/image%201.png"><img style="width:604px" src="Module%201%206252d7cdb31b47eb8c36a361d162714b/image%201.png"/></a><figcaption>Figure 2: A typical daily record of global and diffuse radiation.</figcaption></figure></div><div id="a1a55aad-01f2-47a9-8ebe-9d15f5496163" style="width:50%" class="column"><figure id="328634dc-5889-4650-bb65-a56a068ced4c" class="image"><a href="Module%201%206252d7cdb31b47eb8c36a361d162714b/image%202.png"><img style="width:596px" src="Module%201%206252d7cdb31b47eb8c36a361d162714b/image%202.png"/></a><figcaption>Figure 3: A typical global and diffuse radiation on a cloudy day.</figcaption></figure></div></div><p id="525ffb11-50f6-4a33-ab3d-c681f8770564" class="">
+</p><ul id="53c6ff20-c4a3-4648-8f30-0add5aa9bc8f" class="bulleted-list"><li style="list-style-type:disc">India lies between latitude 7° and 37° N, and receives an annual average intensity of solar radiation between<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>16700</mn><mtext>–</mtext><mn>29260</mn><mtext> </mtext><mi>k</mi><mi>J</mi><mi mathvariant="normal">/</mi><msup><mi>m</mi><mn>2</mn></msup><mi mathvariant="normal">/</mi><mi>d</mi><mi>a</mi><mi>y</mi><mo separator="true">,</mo><mspace width="1em"/><mo stretchy="false">(</mo><mn>400</mn><mo>−</mo><mn>700</mn><mtext> langleys/day</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">16700–29260 \ kJ/m^2/day ,\quad (400-700 \text{ langleys/day})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">16700–29260</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">400</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">700</span><span class="mord text"><span class="mord"> langleys/day</span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>. </li></ul><ul id="28bb1131-bf2f-4ad3-b7cf-99b41ddacc36" class="bulleted-list"><li style="list-style-type:disc">The daily solar insolation figures over the different places in India are accurately available. Peak values are generally measured in April or May, with parts of Rajasthan and Gujarat receiving over <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>25100</mn><mtext> </mtext><mi>k</mi><mi>J</mi><mi mathvariant="normal">/</mi><msup><mi>m</mi><mn>2</mn></msup><mi mathvariant="normal">/</mi><mi>d</mi><mi>a</mi><mi>y</mi><mo separator="true">,</mo><mspace width="1em"/><mo stretchy="false">(</mo><mn>600</mn><mtext> langleys/day</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">25100 \ kJ/m^2/day ,\quad (600 \text{ langleys/day})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">25100</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">600</span><span class="mord text"><span class="mord"> langleys/day</span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>. </li></ul><ul id="9b618540-65a9-4410-ba6e-c87a5d3521a9" class="bulleted-list"><li style="list-style-type:disc">During the monsoon and winter months, the daily solar radiation decreases to about <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>16700</mn><mtext> </mtext><mi>k</mi><mi>J</mi><mi mathvariant="normal">/</mi><msup><mi>m</mi><mn>2</mn></msup><mi mathvariant="normal">/</mi><mi>d</mi><mi>a</mi><mi>y</mi><mo separator="true">,</mo><mspace width="1em"/><mo stretchy="false">(</mo><mn>400</mn><mtext> langleys/day</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">16700 \ kJ/m^2/day ,\quad (400 \text{ langleys/day})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">16700</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">400</span><span class="mord text"><span class="mord"> langleys/day</span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>. </li></ul><p id="36932fe5-5f17-498c-8374-dc22ab19f611" class="">
+</p><ul id="e14bf9db-3168-4419-8214-b827d434ede1" class="bulleted-list"><li style="list-style-type:disc">The annual daily diffuse radiation received over the whole country is observed to be about<style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7300</mn><mtext> </mtext><mi>k</mi><mi>J</mi><mi mathvariant="normal">/</mi><msup><mi>m</mi><mn>2</mn></msup><mi mathvariant="normal">/</mi><mi>d</mi><mi>a</mi><mi>y</mi><mo separator="true">,</mo><mspace width="1em"/><mo stretchy="false">(</mo><mn>175</mn><mtext> langleys/day</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">7300\ kJ/m^2/day ,\quad (175 \text{ langleys/day})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">7300</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">175</span><span class="mord text"><span class="mord"> langleys/day</span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>. </li></ul><ul id="19d01041-da61-46ad-8f72-6e5dbdbe9ae2" class="bulleted-list"><li style="list-style-type:disc">The minimum values of diffuse radiation, measured over many parts of the country during November and December, are between <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3135</mn><mo>−</mo><mn>4180</mn><mtext> </mtext><mi>k</mi><mi>J</mi><mi mathvariant="normal">/</mi><msup><mi>m</mi><mn>2</mn></msup><mi mathvariant="normal">/</mi><mi>d</mi><mi>a</mi><mi>y</mi><mo separator="true">,</mo><mspace width="1em"/><mo stretchy="false">(</mo><mn>75</mn><mo>−</mo><mn>100</mn><mtext> langleys/day</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">3135-4180\ kJ/m^2/day ,\quad (75-100 \text{ langleys/day})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">3135</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">4180</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">75</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">100</span><span class="mord text"><span class="mord"> langleys/day</span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>, while maximum values measured over the whole country are about <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>12250</mn><mtext> </mtext><mi>k</mi><mi>J</mi><mi mathvariant="normal">/</mi><msup><mi>m</mi><mn>2</mn></msup><mi mathvariant="normal">/</mi><mi>d</mi><mi>a</mi><mi>y</mi><mo separator="true">,</mo><mspace width="1em"/><mo stretchy="false">(</mo><mn>300</mn><mtext> langleys/day</mtext><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">12250\ kJ/m^2/day ,\quad (300 \text{ langleys/day})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0641em;vertical-align:-0.25em;"></span><span class="mord">12250</span><span class="mspace"> </span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord">/</span><span class="mord mathnormal">d</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:1em;"></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mopen">(</span><span class="mord">300</span><span class="mord text"><span class="mord"> langleys/day</span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>, especially in July in Gujarat.</li></ul><hr id="f4dc76b0-638f-4d18-be18-6937b89421c1"/><h2 id="cb4ba8a3-e160-43ba-b986-5dedfa9378cf" class="block-color-blue_background">Pyrometer</h2><ul id="bfc44f60-dd88-4601-8330-743ac25052d8" class="bulleted-list"><li style="list-style-type:disc">A pyrometer, also known as an infrared thermometer, radiation thermometer, or non-contact thermometer, is used to detect the surface temperature of an object. This detection depends on the radiation (infrared or visible) emitted from the object. </li></ul><ul id="9e4024f1-5ead-450f-b49d-58908e883d25" class="bulleted-list"><li style="list-style-type:disc">Pyrometers act as photodetectors because they have the property of absorbing energy and measuring the intensity of electromagnetic waves at any wavelength.</li></ul><ul id="ea2276ee-dab8-4276-8a47-036030a18325" class="bulleted-list"><li style="list-style-type:disc">These devices are used to measure high temperatures in furnaces and can do so very accurately, precisely, visually, and quickly.</li></ul><ul id="cc86bfe0-20c5-491f-baf4-552062ba2a6f" class="bulleted-list"><li style="list-style-type:disc">Pyrometers are available in different spectral ranges (since metals require short-wave ranges and non-metals require long-wave ranges).</li></ul><figure id="3c718184-81f7-47d3-a6e5-076d7a44195d" class="image"><a href="Module%201%206252d7cdb31b47eb8c36a361d162714b/image%203.png"><img style="width:528px" src="Module%201%206252d7cdb31b47eb8c36a361d162714b/image%203.png"/></a><figcaption>Figure 4: Pyrometer</figcaption></figure><h3 id="e51354bf-50dd-41ab-8650-ba82fd442a34" class="block-color-pink_background">Working Principle</h3><ul id="9ba13abf-2856-48c2-8fe4-432d0228663d" class="bulleted-list"><li style="list-style-type:disc">It is based on the principle that the intensity of light received by the observer depends upon the distance of the observer from the source and the temperature of the distant source. </li></ul><ul id="fff8a7cc-169d-8041-98c4-ce7699591d57" class="bulleted-list"><li style="list-style-type:disc">A modern pyrometer has an optical system and a detector. The optical system focuses the thermal radiation onto the detector. </li></ul><ul id="0e5d30f7-fa7d-4cb5-9e76-8faa2b8772d5" class="bulleted-list"><li style="list-style-type:disc">The output signal of the detector (temperature <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span></span></span></span></span><span>﻿</span></span>) is related to the thermal radiation or irradiance <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>j</mi><mo>∗</mo></msup></mrow><annotation encoding="application/x-tex">j^*</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8831em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6887em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> of the target object through the <strong>Stefan-Boltzmann</strong> law, the proportionality constant <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span></span></span></span></span><span>﻿</span></span>, called the Stefan-Boltzmann constant, and the emissivity <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ϵ</mi></mrow><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">ϵ</span></span></span></span></span><span>﻿</span></span> of the object:<figure id="6b50804a-7348-4f09-bd93-a998303cf082" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi>j</mi><mo>∗</mo></msup><mo>=</mo><mi>ϵ</mi><mi>σ</mi><msup><mi>T</mi><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">j^* = \epsilon\sigma T^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9331em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7387em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mbin mtight">∗</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8641em;"></span><span class="mord mathnormal">ϵ</span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span></div></figure></li></ul><ul id="9895cc65-d9f7-4ac1-bed7-adfaed87dc53" class="bulleted-list"><li style="list-style-type:disc">This output is used to infer the object&#x27;s temperature from a distance, with no need for the pyrometer to be in thermal contact with the object.</li></ul><ul id="8758cdbd-8399-4db5-a50d-493693d0e67f" class="bulleted-list"><li style="list-style-type:disc">Most other thermometers (e.g. thermocouples and resistance temperature detectors (RTDs)) are placed in thermal contact with the object and allowed to reach thermal equilibrium.</li></ul><hr id="8516f641-a033-4705-b018-e6853b89d913"/><h2 id="7e67e532-c618-438a-a2d2-715f4a1c1ef6" class="block-color-blue_background">Shading Ring Pyrheliometer</h2><ul id="a261101a-85cb-4422-842a-a8870d532390" class="bulleted-list"><li style="list-style-type:disc">A shading ring pyrheliometer is an instrument used to measure direct solar radiation. It specifically measures the amount of solar radiation that reaches the Earth&#x27;s surface without being scattered or diffused by the atmosphere. </li></ul><ul id="52d1edc0-b170-485a-ab18-65f392d52534" class="bulleted-list"><li style="list-style-type:disc">The instrument uses a shading ring to block diffuse solar radiation, allowing it to accurately measure direct sunlight.</li></ul><p id="ad688fb8-8cbd-445f-bdef-7da1fc345fcf" class="">
+</p><figure id="28f7f87f-c999-4478-9c4c-82d8adb578da" class="image"><a href="Module%201%206252d7cdb31b47eb8c36a361d162714b/image%204.png"><img style="width:576px" src="Module%201%206252d7cdb31b47eb8c36a361d162714b/image%204.png"/></a><figcaption>Figure 5: Shading ring pyrheliometer</figcaption></figure><h3 id="1226f85e-0fbf-4245-bcf8-062bf29e9670" class="block-color-pink_background">Construction and Principle of Working</h3><ul id="4eeea385-34be-4352-bb37-da52de4de4ee" class="bulleted-list"><li style="list-style-type:disc">A shading ring pyrheliometer is designed to measure direct solar radiation by capturing sunlight in a controlled and precise manner.</li></ul><ul id="5f813e97-3199-4692-bafb-adc62c4733d6" class="bulleted-list"><li style="list-style-type:disc">The main body of the pyrheliometer consists of a tube that is blackened inside to absorb as much solar radiation as possible, minimizing internal reflection and ensuring that all incoming solar radiation is absorbed.</li></ul><ul id="8777db8f-3e8b-49d0-aeae-0bc85dcbcb88" class="bulleted-list"><li style="list-style-type:disc">The tube is constructed with a specific acceptance angle, typically around 5°, allowing only direct solar radiation from the sun to enter while minimizing the amount of diffuse radiation that could affect the readings.</li></ul><ul id="5efdb97d-113b-46e1-a3d5-aace4f9bf523" class="bulleted-list"><li style="list-style-type:disc">An alignment indicator helps ensure that the pyrheliometer is properly aligned with the sun, as precise alignment is crucial for accurately measuring direct solar radiation.</li></ul><ul id="c3f7e9d1-a080-49b9-8c77-1a6ed461fff7" class="bulleted-list"><li style="list-style-type:disc">Inside the tube, a black absorber plate captures the incoming solar radiation, converting it into heat. The black surface of the absorber plate is highly effective at absorbing all wavelengths of light, maximizing the conversion of solar radiation into thermal energy.</li></ul><ul id="67a7eba7-541b-4fdc-af36-54a59e972d89" class="bulleted-list"><li style="list-style-type:disc">Thermocouples attached to the absorber plate measure the temperature increase caused by the absorbed solar radiation, converting this thermal energy into an electrical signal that can be quantified.</li></ul><ul id="987afe0a-0184-4fcc-8fe9-138fbfc89e66" class="bulleted-list"><li style="list-style-type:disc">Insulation around the tube and sensitive components prevents external temperature changes from affecting the accuracy of the measurements, maintaining a stable environment for the thermocouples and the absorber plate.</li></ul><ul id="f7e37cd4-36c6-4d51-a5eb-8c96dfc305bc" class="bulleted-list"><li style="list-style-type:disc">The pyrheliometer is mounted on a two-axis tracking mechanism that follows the sun&#x27;s path across the sky throughout the day, ensuring continuous alignment with the sun for consistent and accurate measurements.</li></ul><ul id="46a4828e-c896-42f8-98b7-e0a0485b00f9" class="bulleted-list"><li style="list-style-type:disc">As the direct solar radiation enters the tube, it strikes the black absorber plate, causing a temperature increase that is measured by the thermocouples.</li></ul><ul id="38ef74a9-1134-468d-9a6c-647fdbdde2b2" class="bulleted-list"><li style="list-style-type:disc">The electrical signal generated by the thermocouples is processed to calculate solar irradiance, with a temperature compensation mechanism adjusting the readings to account for any ambient temperature variations.</li></ul><ul id="d288487f-049a-4df5-9f63-8b2266614e52" class="bulleted-list"><li style="list-style-type:disc">This setup allows for continuous monitoring and recording of direct solar radiation throughout the day as the sun moves, providing accurate and reliable data on solar energy.</li></ul><hr id="e0267fb1-7b43-4fc8-b163-979597b9e938"/><h2 id="fbefbfb0-83c0-422e-98d2-e461566ff243" class="block-color-blue_background">Sunshine Recorder</h2><p id="505a5b49-aed1-4a04-ba8c-3d59e8fd28d5" class="">A sunshine recorder, also known as a Campbell-Stokes recorder, is a simple yet effective device used to record the duration of sunshine at a specific location.</p><h3 id="3ab9dada-5906-4a8f-b002-83769fe4bcc4" class="block-color-pink_background">Construction and Principle of Working</h3><p id="f110510f-74ff-4eb7-bbe3-1bbc8d0e3a59" class="">The Campbell-Stokes Sunshine Recorder primarily consists of a <strong>glass sphere</strong> and a <strong>recorder</strong>:</p><ul id="7cf451a3-62cb-457f-87f1-ea332ecef131" class="bulleted-list"><li style="list-style-type:disc"><strong>Glass Sphere</strong>: This solid, clear glass sphere focuses the sun’s rays onto a specific point. The sphere acts as a lens, concentrating sunlight onto a calibrated card or strip placed in the recorder.</li></ul><ul id="3e0e9aca-f2dc-4c33-b8b9-0336d5afa208" class="bulleted-list"><li style="list-style-type:disc"><strong>Recorder</strong>: The recorder is typically an adjustable metal housing that holds the recording card. The card is made of heat-sensitive paper that gets scorched or burnt by the concentrated sunlight. As the sun moves across the sky, the focused light burns a trace along the card.</li></ul><h3 id="9127710a-6762-4b2e-836c-0333bc0032a4" class="block-color-pink_background">Working Mechanism</h3><ul id="08197cc0-fc9c-464f-9e31-156c1c6b84ac" class="bulleted-list"><li style="list-style-type:disc">The recorder operates by focusing sunlight through the glass sphere onto the recording card. </li></ul><ul id="b23b7ff2-89b7-4d5c-9b1b-939d59bbab25" class="bulleted-list"><li style="list-style-type:disc">When the sun is shining, the concentrated rays are strong enough to burn a mark on the card. The length of the burn trace on the card represents the duration of sunshine for that day.</li></ul><ul id="5730ed1c-474d-41a4-866f-a5443c770f1b" class="bulleted-list"><li style="list-style-type:disc">The card is marked with hourly intervals, allowing observers to determine not only the total amount of sunshine but also the periods during which the sun was shining. </li></ul><ul id="6a54e55b-6fe1-4f9b-b2aa-c4be1dad47b0" class="bulleted-list"><li style="list-style-type:disc">The device must be aligned correctly for different latitudes and times of the year, ensuring accurate measurements. By changing the position of the recording card in the housing, the recorder can adapt to seasonal changes in the sun&#x27;s path.</li></ul><hr id="a51ef830-e366-47e2-b785-35152a1b3c0f"/><h2 id="fff8a7cc-169d-8063-b013-fd06dbc8f2f3" class="block-color-blue_background">Actinometer</h2><ul id="0dbc9c27-68bb-4501-947a-0fcb3c0dd187" class="bulleted-list"><li style="list-style-type:disc">An actinometer is a device used to measure the intensity of electromagnetic radiation, particularly in the visible and ultraviolet regions of the spectrum. It is often used to measure solar radiation. </li></ul><ul id="9e4ea0f3-3a88-4932-8e41-469acc89a655" class="bulleted-list"><li style="list-style-type:disc">The term &quot;actinometer&quot; is derived from &quot;actino,&quot; meaning light, and &quot;meter,&quot; meaning to measure.</li></ul><ul id="d9dfa6ac-d929-4103-8eb5-95d0f0dd411e" class="bulleted-list"><li style="list-style-type:disc">There are various types of actinometers, but they generally work based on the principle of photochemical reactions. In a basic actinometer, a photosensitive substance undergoes a chemical reaction when exposed to light, and the extent of this reaction is proportional to the intensity of the light. This reaction can be measured quantitatively to determine the intensity of the radiation.</li></ul><ul id="b574467d-31d2-487c-a9c6-d85db1540c79" class="bulleted-list"><li style="list-style-type:disc">Actinometers are used in atmospheric science, climatology, and photometry to measure solar radiation, study the Earth&#x27;s energy budget, and monitor changes in solar irradiance over time.</li></ul><hr id="ee4676db-4230-4450-9571-b1290a7bb78c"/><h2 id="ee5dfcbc-b40f-4a43-a92a-6c8e7301abf7" class="block-color-blue_background">Bolometer</h2><ul id="7263da2c-6a36-404f-8387-f461a745a068" class="bulleted-list"><li style="list-style-type:disc">A bolometer is a device used to measure the power of incident electromagnetic radiation, typically in the infrared or microwave regions of the spectrum. </li></ul><ul id="f5098d2f-9370-4f92-9b0a-67161b7c53e4" class="bulleted-list"><li style="list-style-type:disc">Unlike an actinometer, which measures the intensity of radiation, a bolometer measures the total power or energy of the radiation.</li></ul><ul id="000fd78d-aa0c-4a63-949d-d05becd52e37" class="bulleted-list"><li style="list-style-type:disc">Bolometers operate based on the principle of detecting changes in temperature caused by the absorption of radiation. A typical bolometer consists of a thermally sensitive element, such as a thin strip of metal or semiconductor material, which is heated by the absorbed radiation. The change in temperature of the element is measured using a temperature sensor, such as a resistance thermometer, and this change is proportional to the power of the incident radiation.</li></ul><ul id="37c59903-bbc8-41d9-8594-d297c27a1bc3" class="bulleted-list"><li style="list-style-type:disc">Bolometers are widely used in astronomy, spectroscopy, and remote sensing to measure the intensity of radiation emitted by celestial bodies, study the composition of planetary atmospheres, and detect faint signals from distant objects.</li></ul><hr id="763a133d-e4e6-4f94-9238-ef45dbc7c2c2"/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
